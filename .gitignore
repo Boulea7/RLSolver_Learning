@@ -1,5 +1,11 @@
-# 忽略RLSolver文件夹（这是外部参考仓库）
-RLSolver/
+# RLSolver作为子模块管理，不忽略整个文件夹
+# 但忽略RLSolver中的临时文件和缓存
+RLSolver/__pycache__/
+RLSolver/*.pyc
+RLSolver/*.pyo
+RLSolver/.pytest_cache/
+RLSolver/.coverage
+RLSolver/htmlcov/
 
 # Python
 __pycache__/
