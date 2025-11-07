@@ -37,19 +37,17 @@ RLSolver_Learning/
 │   │   ├── maxcut.py       # 最大割问题环境
 │   │   └── base.py        # 基础环境类
 │   ├── agents/             # 智能体实现
-│   │   ├── dqn.py         # 简化DQN智能体
-│   │   └── base.py        # 基础智能体类
+│   │   └── dqn.py         # 简化DQN智能体
 │   └── utils/             # 工具函数
 │       ├── graph.py        # 图处理工具
 │       └── train.py       # 训练工具
-├── data/                  # 数据文件
 ├── examples/              # 示例脚本
-│   ├── run_eco.py      # ECO算法示例
-│   └── run_s2v.py      # S2V算法示例
+│   └── run_eco.py      # ECO算法示例
 ├── tests/                 # 测试脚本
-├── docs/                  # 文档
-├── requirements.txt        # 依赖列表
-└── config.py             # 配置文件
+├── requirements.txt        # 依赖列表（已合并开发依赖）
+├── Todolist.md           # 本地任务列表（不提交到GitHub）
+├── .gitignore           # Git忽略规则
+└── RLSolver/            # 参考仓库（独立管理）
 ```
 
 ## 快速开始
@@ -65,26 +63,46 @@ pip install -r requirements.txt
 ```bash
 # 运行ECO算法示例
 python examples/run_eco.py
-
-# 运行S2V算法示例
-python examples/run_s2v.py
 ```
 
 ## 核心组件
 
 ### 1. 环境 (Environment)
+- **SpinSystemEnvironment**：基础自旋系统环境类
+  - 支持可逆和不可逆两种模式
+  - 提供稀疏和密集两种奖励信号
+  - 实现通用的环境接口
+
 - **MaxCutEnvironment**：最大割问题的环境实现
-- 支持可逆和不可逆两种模式
-- 提供稀疏和密集两种奖励信号
+  - 基于自旋系统，专门针对最大割问题
+  - 支持BA和ER两种图类型
+  - 提供图的可视化功能
 
 ### 2. 智能体 (Agent)
 - **DQNAgent**：简化的深度Q网络智能体
-- 支持经验回放和目标网络
-- 实现ε-贪婪探索策略
+  - 支持经验回放和目标网络
+  - 实现ε-贪婪探索策略
+  - 提供训练和评估模式
 
 ### 3. 算法 (Algorithm)
 - **ECOAlgorithm**：ECO算法的简化实现
+  - 使用可逆自旋系统和稀疏奖励
+  - 集成训练和评估功能
+
 - **S2VAlgorithm**：S2V算法的简化实现
+  - 使用不可逆自旋系统和密集奖励
+  - 集成训练和评估功能
+
+### 4. 工具 (Utils)
+- **Graph Utils**：图处理工具
+  - 支持BA和ER两种随机图生成
+  - 提供图属性计算和可视化功能
+  - 支持图的加载和保存
+
+- **Training Utils**：训练工具
+  - 提供通用的训练和评估框架
+  - 支持模型保存和加载
+  - 提供训练曲线可视化
 
 ## 学习路线
 
@@ -127,6 +145,8 @@ python examples/run_s2v.py
 - [x] 文档编写
 - [x] Git仓库初始化和链接
 - [x] 代码问题修复
+- [x] 合并requirements文件
+- [x] 项目清理和优化
 
 ### 进行中
 - [ ] 代码调试和测试
@@ -138,3 +158,40 @@ python examples/run_s2v.py
 - [x] 修复了tests/test_basic.py中缺少numpy导入的问题
 - [x] 修复了examples/run_s2v.py中缺少numpy和ECOAlgorithm导入的问题
 - [x] 修复了src/algorithms/eco.py和src/algorithms/s2v.py中错误的方法调用问题
+
+## 依赖说明
+
+项目已将开发和生产依赖合并到单个 `requirements.txt` 文件中，包含：
+
+### 核心依赖
+- **torch**: 深度学习框架
+- **numpy**: 数值计算
+- **networkx**: 图处理
+- **matplotlib**: 数据可视化
+- **pandas**: 数据处理
+- **scipy**: 科学计算
+- **tqdm**: 进度条显示
+
+### 开发依赖
+- **pytest**: 测试框架
+- **flake8**: 代码质量检查
+- **black**: 代码格式化
+- **isort**: 导入排序
+- **mypy**: 类型检查
+- **sphinx**: 文档生成
+- **pre-commit**: Git钩子
+- **jupyter**: 交互式开发环境
+
+## RLSolver参考
+
+`RLSolver` 文件夹包含原始的 RLSolver 项目作为参考，该文件夹：
+- 不被Git跟踪（见.gitignore）
+- 可独立更新：`cd RLSolver && git pull`
+- 用于参考原始实现和对比学习
+
+## 注意事项
+
+1. **Todolist.md** 是本地高优先级文件，不会被提交到GitHub
+2. **RLSolver** 文件夹作为只读参考仓库独立管理
+3. 项目保持最小化设计，专注于核心功能实现
+4. 所有更改应通过main分支同步到GitHub
