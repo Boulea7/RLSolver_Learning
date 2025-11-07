@@ -7,6 +7,26 @@ RLSolver/.pytest_cache/
 RLSolver/.coverage
 RLSolver/htmlcov/
 
+# 临时数据文件
+test_*.txt
+*.tmp
+*.temp
+Todolist*
+TODO*
+
+# 文档文件夹（已删除，防止重新创建）
+docs/
+_docs/
+
+# 日志文件夹
+logs/
+*.log
+
+# 缓存和临时文件夹
+cache/
+tmp/
+temp/
+
 # Python
 __pycache__/
 *.py[cod]
