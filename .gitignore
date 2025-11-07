@@ -11,7 +11,8 @@ RLSolver/htmlcov/
 test_*.txt
 *.tmp
 *.temp
-Todolist*
+# Todolist.md保留在本地但不提交到GitHub
+Todolist.md
 TODO*
 
 # 文档文件夹（已删除，防止重新创建）
