@@ -44,6 +44,8 @@ RLSolver_Learning/
 │       └── train.py       # 训练工具
 ├── data/                  # 数据文件
 ├── examples/              # 示例脚本
+│   ├── run_eco.py      # ECO算法示例
+│   └── run_s2v.py      # S2V算法示例
 ├── tests/                 # 测试脚本
 ├── docs/                  # 文档
 ├── requirements.txt        # 依赖列表
@@ -107,3 +109,32 @@ python examples/run_s2v.py
 ## 致谢
 
 感谢 [Open-Finance-Lab/RLSolver](https://github.com/Open-Finance-Lab/RLSolver) 项目提供的原始实现和理论基础。
+
+## 项目进度
+
+### 已完成
+- [x] 项目结构设计
+- [x] 基础环境类实现
+- [x] 基础智能体类实现
+- [x] ECO算法实现
+- [x] S2V算法实现
+- [x] 最大割环境实现
+- [x] DQN智能体实现
+- [x] 图处理工具实现
+- [x] 训练工具实现
+- [x] 示例脚本
+- [x] 基础测试
+- [x] 文档编写
+- [x] Git仓库初始化和链接
+- [x] 代码问题修复
+
+### 进行中
+- [ ] 代码调试和测试
+- [ ] 性能优化
+- [ ] 更多算法实现
+- [ ] 更多问题支持
+
+### 已修复问题
+- [x] 修复了tests/test_basic.py中缺少numpy导入的问题
+- [x] 修复了examples/run_s2v.py中缺少numpy和ECOAlgorithm导入的问题
+- [x] 修复了src/algorithms/eco.py和src/algorithms/s2v.py中错误的方法调用问题
