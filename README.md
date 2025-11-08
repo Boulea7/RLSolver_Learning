@@ -28,7 +28,6 @@
 ## 项目结构
 
 ```
-RLSolver_Learning/
 ├── src/                    # 核心源代码
 │   ├── algorithms/          # 算法实现
 │   │   ├── eco.py          # ECO算法简化版
@@ -45,9 +44,11 @@ RLSolver_Learning/
 │   └── run_eco.py      # ECO算法示例
 ├── tests/                 # 测试脚本
 ├── requirements.txt        # 依赖列表（已合并开发依赖）
-├── Todolist.md           # 本地任务列表（不提交到GitHub）
+├── README.md              # 项目说明文档
+├── QUICKSTART.md          # 快速开始指南
+├── config.py              # 配置文件
 ├── .gitignore           # Git忽略规则
-└── RLSolver/            # 参考仓库（独立管理）
+└── .git/                 # Git版本控制
 ```
 
 ## 快速开始
